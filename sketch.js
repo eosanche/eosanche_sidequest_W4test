@@ -79,8 +79,8 @@ function loadLevel(i) {
   world = new WorldLevel(data.levels[levelIndex]);
 
   // Fit canvas to world geometry (or defaults if needed).
-  const W = world.inferWidth(640);
-  const H = world.inferHeight(360);
+  const W = world.inferWidth(1040);
+  const H = world.inferHeight(2000);
   resizeCanvas(W, H);
 
   // Apply level settings + respawn.

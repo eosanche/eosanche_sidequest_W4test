@@ -49,19 +49,23 @@ class WorldLevel {
     };
 
     // Convert raw platform objects into Platform instances.
-    this.platforms = (levelJson.platforms || []).map((p) => new Platform(p));
+    this.platforms = [];
+    for (let i = 0; i < (levelJson.platforms || []).length; i++) {
+      const p = levelJson.platforms[i];
+      this.platforms.push(new Platform(p));
+    }
   }
 
   /*
   If you want the canvas to fit the world, you can infer width/height by
   finding the maximum x+w and y+h across all platforms.
   */
-  inferWidth(defaultW = 640) {
+  inferWidth(defaultW = 1040) {
     if (!this.platforms.length) return defaultW;
     return max(this.platforms.map((p) => p.x + p.w));
   }
 
-  inferHeight(defaultH = 360) {
+  inferHeight(defaultH = 2000) {
     if (!this.platforms.length) return defaultH;
     return max(this.platforms.map((p) => p.y + p.h));
   }
