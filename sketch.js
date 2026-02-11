@@ -1,20 +1,3 @@
-/*
-Week 4 — Example 5: Example 5: Blob Platformer (JSON + Classes)
-Course: GBDA302
-Instructors: Dr. Karen Cochrane and David Han
-Date: Feb. 5, 2026
-
-This file orchestrates everything:
-- load JSON in preload()
-- create WorldLevel from JSON
-- create BlobPlayer
-- update + draw each frame
-- handle input events (jump, optional next level)
-
-This matches the structure of the original blob sketch from Week 2 but moves
-details into classes.
-*/
-
 let data; // raw JSON data
 let levelIndex = 0;
 
@@ -79,8 +62,8 @@ function loadLevel(i) {
   world = new WorldLevel(data.levels[levelIndex]);
 
   // Fit canvas to world geometry (or defaults if needed).
-  const W = world.inferWidth(640);
-  const H = world.inferHeight(360);
+  const W = world.inferWidth(1040);
+  const H = world.inferHeight(2000);
   resizeCanvas(W, H);
 
   // Apply level settings + respawn.
